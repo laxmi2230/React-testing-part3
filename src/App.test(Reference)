@@ -1,0 +1,49 @@
+test("header render correctly" , () =>
+{
+    const { getByTestId } = render(<App />)
+    const headerEl = getByTestId("header")
+
+    expect(headerEl.textContent).toBe("ToDos")
+})
+
+test("header render correctly" , () =>
+{
+    const { getByTestId } = render(<App />)
+    const headerEl = getByTestId("header1")
+
+    expect(headerEl.textContent).toBe("what's in it??")
+})
+
+//initially the input is empty it should b changed by user 
+test("input render correctly" , () =>
+{
+    const { getByTestId } = render(<App />)
+    const inputEl = getByTestId("input")
+
+    expect(inputEl.value).toBe("")
+})
+
+
+test("input render correctly" , () =>
+{
+    const { getByTestId } = render(<App />)
+    const inputEl = getByTestId("input")
+
+    expect(inputEl.value).toBe("")
+
+    fireEvent.change(inputEl, {
+        target: {
+            value: "Laxmi"
+        }
+    });
+
+    expect(inputEl.value).toBe("Laxmi")
+})
+
+test("button render correctly" , () =>
+{
+    const { getByTestId } = render(<App />)
+    const buttonEl = getByTestId("add-btn")
+
+    expect(buttonEl.textContent).toBe("Add #1")
+})
